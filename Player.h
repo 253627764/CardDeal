@@ -1,18 +1,6 @@
 #include <iostream>
 #include <list>
 using namespace std;
-
-//debug
-namespace CardDeal {
-    
-    class Card{
-        
-        
-    };
-    
-}
-
-
 typedef list<CardDeal::Card *> Cards;
 class Player{
     
