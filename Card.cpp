@@ -80,7 +80,8 @@ void Card::setIsShow(bool isshow)
         this->_isShow = isshow;
 }
 
-CardVec Card::Vec() const
+
+Card::CardVec Card::Vec() const
 {
         return this->_vec;
 }
@@ -92,43 +93,43 @@ void Card::setVec(CardVec vec)
 
 bool Card::Put()
 {
-        this->setConsume(Place::Area);
+        this->setConsume(Card::Area);
         return true;
 }
 
 bool Card::Die()
 {
-        this->setConsume(Place::Cemetery);
+        this->setConsume(Card::Cemetery);
         return true;
 }
 
 bool Card::Back()
 {
-        this->setConsume(Place::Head);
+        this->setConsume(Card::Head);
         return true;
 }
 
 bool Card::Out()
 {
-        this->setConsume(Place::Outside);
+        this->setConsume(Card::Outside);
         return true;
 }
 
 bool Card::OutBack()
 {
-        this->setConsume(Place::Head);
+        this->setConsume(Card::Head);
         return true;
 }
 
 bool Card::BackArea()
 {
-        this->setConsume(Place::Area);
+        this->setConsume(Card::Area);
         return true;
 }
 
 bool Card::OutBackArea()
 {
-        this->setConsume(Place::Area);
+        this->setConsume(Card::Area);
         return true;
 }
 
