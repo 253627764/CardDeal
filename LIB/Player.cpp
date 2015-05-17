@@ -2,7 +2,6 @@
 
 
 
-
 Player::Player(int h,int m){
     this->hp = h;
     this->mp = m;
@@ -30,5 +29,9 @@ Cards Player::getHandCards(){
 }
 void Player::pushGraveyadCards(CardDeal::Card *c){
     this->graveyad_cards.push_front(c);
+}
+
+void Player::pushHandCards(CardDeal::Card *c){
+    this->hand_cards.push_front(c);
 }
 

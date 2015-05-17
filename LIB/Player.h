@@ -1,5 +1,9 @@
+#ifndef __PLAYER_H__
+#define __PLAYER_H__
+
 #include <iostream>
 #include <list>
+#include "Card.h"
 using namespace std;
 typedef list<CardDeal::Card *> Cards;
 class Player{
@@ -14,6 +18,7 @@ public:
     
     Cards getGraveyadCards();
     void pushGraveyadCards(CardDeal::Card *c);
+    void pushHandCards(CardDeal::Card *c);
     Cards getHandCards();
     
     
@@ -24,3 +29,7 @@ private:
     Cards graveyad_cards,hand_cards;
     
 };
+
+
+
+#endif

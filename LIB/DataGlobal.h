@@ -1,3 +1,7 @@
+#ifndef __DATAGLOBAL_H__
+#define __DATAGLOBAL_H__
+
+
 #include <iostream>
 #include "Player.h"
 using namespace std;
@@ -13,3 +17,6 @@ public:
     static Player * getPlayerA();
     static Player * getPlayerB();
 };
+
+
+#endif

@@ -1,4 +1,5 @@
-
+#ifndef __CARD_H__
+#define __CARD_H__
 namespace CardDeal
 {
         typedef int CardVal;
@@ -23,7 +24,7 @@ namespace CardDeal
 
                 Card();
                 ~Card();
-                Card(int id, CardVal leftval, CardVal rightval, CardVal consume);
+                Card(int id, char* name ,CardVal leftval, CardVal rightval, CardVal consume);
 
                 Place LocationStatus() const;
 
@@ -44,6 +45,9 @@ namespace CardDeal
 
                 CardVec Vec() const;
                 void setVec(CardVec vec);
+
+
+                char*  Name() const;
 
                 bool Put();
                 bool Die();
@@ -67,8 +71,13 @@ namespace CardDeal
 
                 bool _isShow;
                 CardVec _vec;
-
+                char *_name;
                 int _id;
 
         };
 }
+
+
+
+
+#endif

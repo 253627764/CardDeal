@@ -1,5 +1,4 @@
 #include "Card.h"
-
 using namespace CardDeal;
 
 Card::Card()
@@ -7,17 +6,18 @@ Card::Card()
 
 }
 
-Card::~Card()
-{
 
-}
-
-Card::Card(int id, CardVal leftval, CardVal rightval, CardVal consume)
+Card::Card(int id, char* name, CardVal leftval, CardVal rightval, CardVal consume)
 {
         this->_id = id;
+        this->_name = name;
         this->_leftVal = leftval;
         this->_rightVal = rightval;
         this->_consume = consume;
+}
+Card::~Card()
+{
+
 }
 
 Card::Place Card::LocationStatus() const
@@ -33,6 +33,12 @@ void Card::_setLocationStatus(Card::Place status)
 int Card::Id() const
 {
         return this->_id;
+}
+
+
+char* Card::Name() const
+{
+        return this->_name;
 }
 
 void Card::setId(int id)
@@ -132,4 +138,7 @@ bool Card::OutBackArea()
         this->setConsume(Card::Area);
         return true;
 }
-
+bool Card::Attach()
+{
+        return true;
+}
