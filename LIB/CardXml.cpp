@@ -1,4 +1,5 @@
 #include "CardXml.h"
+#include <string>
 CardXml::CardXml(){
 	new (this)CardXml("./data/cards.xml");
 }
@@ -28,6 +29,7 @@ Card* CardXml::getCard(int id){
 }
 
 Card* CardXml::getCard(string filename){
+
 	 TiXmlDocument *doc = new TiXmlDocument(filename.c_str());
 	 bool loadOk = doc->LoadFile();
 	 if(!loadOk){
@@ -36,14 +38,30 @@ Card* CardXml::getCard(string filename){
 
      TiXmlElement *RootElement = doc->RootElement();
 
+     map<string, int> valuemap;
+     map<string, string> constantmap;
+
+     TiXmlElement *ValueIt = RootElement->FirstChild("values")->FirstChild()->ToElement();
+     while(ValueIt != NULL)
+     {
+         valuemap.insert(map<string,int>::value_type(ValueIt->Value(), atoi(ValueIt->GetText())));
+
+         ValueIt = ValueIt->NextSiblingElement();
+     }
+
+     TiXmlElement *ConstantIt = RootElement->FirstChild("constants")->FirstChild()->ToElement();
+     while(ConstantIt != NULL)
+     {
+         constantmap.insert(map<string,string>::value_type(ConstantIt->Value(), ConstantIt->GetText()));
+         ConstantIt = ConstantIt->NextSiblingElement();
+     }
+
      const char* id = RootElement->FirstChild("id")->ToElement()->GetText();
-     const char* name = RootElement->FirstChild("name")->ToElement()->GetText();
-     const char* leftval = RootElement->FirstChild("leftval")->ToElement()->GetText();
-     const char* rightval = RootElement->FirstChild("rightval")->ToElement()->GetText();
      const char* consume = RootElement->FirstChild("consume")->ToElement()->GetText();
 
 
-     Card *cd = new Card(atoi(id),(char *)name,atoi(leftval),atoi(rightval),atoi(consume));
+     Card *cd = new Card(atoi(id), valuemap, constantmap, atoi(consume));
+     delete doc;
      return cd;
 
 }

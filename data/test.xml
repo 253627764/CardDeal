@@ -1,7 +1,11 @@
 <card>
-	<name>烈焰风暴</name>
 	<id>1</id>
-	<leftval>1000</leftval>
-	<rightval>0</rightval>
+    <values>
+        <leftval>1000</leftval>
+        <rightval>0</rightval>
+    </values>
+    <constants>
+        <name>烈焰风暴</name>
+    </constants>
 	<consume>4</consume>
 </card>

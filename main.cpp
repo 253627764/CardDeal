@@ -8,13 +8,13 @@ int main()
 {
 
 
-		DataGlobal::init(30,1);
-		Player *A = DataGlobal::getPlayerA();
-		CardXml *xm = new CardXml();
-		Card *cd = xm->getCard(1);
-		A->pushHandCards(cd);
+        DataGlobal::init(30,1);
+        Player *A = DataGlobal::getPlayerA();
+        CardXml *xm = new CardXml();
+        Card *cd = xm->getCard(1);
+        A->pushHandCards(cd);
 
 
-		std::cout<<cd->Name();
+        std::cout<<cd->getConstant("name")<<std::endl;
         return 0;
 }
